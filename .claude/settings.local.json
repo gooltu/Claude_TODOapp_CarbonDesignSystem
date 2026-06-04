@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(code *)",
+      "mcp__carbon-mcp__code_search",
+      "Read(//tmp/**)"
+    ]
+  }
+}
