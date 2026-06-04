@@ -1,0 +1,205 @@
+/* Layout */
+.app-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px 120px;
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* Header extras */
+.header-date {
+  margin-left: auto;
+  padding-right: 1rem;
+  font-size: 0.8125rem;
+  color: var(--cds-text-on-color-disabled, #fff);
+  opacity: 0.7;
+  align-self: center;
+}
+
+/* Greeting / progress */
+.greeting {
+  margin-bottom: 2rem;
+}
+.greeting h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+  color: var(--cds-text-primary);
+}
+.greeting .meta {
+  font-size: 0.875rem;
+  color: var(--cds-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.progress-bar {
+  flex: 1;
+  max-width: 140px;
+}
+
+/* Composer (input form) */
+.composer {
+  margin-bottom: 1.5rem;
+}
+.composer .cds--text-input-wrapper {
+  width: 100%;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.filter-group {
+  display: flex;
+  gap: 2px;
+}
+.filter-count {
+  margin-left: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.clear-btn.cds--btn--ghost:hover {
+  color: var(--cds-support-error);
+}
+
+/* List */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--cds-border-subtle);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 0.25rem;
+  border-bottom: 1px solid var(--cds-border-subtle);
+  position: relative;
+  animation: slideIn 0.28s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.item.removing {
+  animation: slideOut 0.22s ease forwards;
+}
+@keyframes slideOut {
+  to { opacity: 0; transform: translateX(8px); height: 0; padding-top: 0; padding-bottom: 0; border-color: transparent; }
+}
+
+/* Checkbox — hide Carbon label wrapper padding */
+.todo-checkbox.cds--checkbox-wrapper {
+  margin: 0;
+}
+
+/* Label (inline editing) */
+.label {
+  flex: 1;
+  font-size: 0.9375rem;
+  color: var(--cds-text-primary);
+  cursor: text;
+  padding: 2px 0;
+  border-radius: 4px;
+  outline: 0;
+  word-break: break-word;
+  transition: color 0.25s ease;
+  position: relative;
+}
+.label::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  top: 50%;
+  height: 1px;
+  background: var(--cds-text-secondary);
+  transition: right 0.3s ease;
+}
+.item.done .label {
+  color: var(--cds-text-secondary);
+}
+.item.done .label::after { right: 0; }
+.label[contenteditable="true"]:focus { color: var(--cds-text-primary); }
+.label[contenteditable="true"]:focus::after { right: 100%; }
+
+/* Timestamp */
+.stamp {
+  font-size: 0.75rem;
+  color: var(--cds-text-helper);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.item:hover .stamp { opacity: 1; }
+
+/* Delete button */
+.delete-btn {
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  flex-shrink: 0;
+}
+.item:hover .delete-btn { opacity: 1; }
+
+/* Empty state */
+.empty {
+  text-align: center;
+  padding: 3.5rem 1.25rem;
+  color: var(--cds-text-secondary);
+}
+.empty .glyph {
+  width: 36px; height: 36px;
+  margin: 0 auto 0.875rem;
+  border: 1.5px dashed var(--cds-border-strong);
+  border-radius: 50%;
+}
+.empty p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+.empty .hint {
+  font-size: 0.75rem;
+  color: var(--cds-text-helper);
+  margin-top: 0.75rem;
+}
+.empty .hint kbd {
+  border: 1px solid var(--cds-border-strong);
+  border-radius: 4px;
+  padding: 1px 5px;
+  background: var(--cds-layer);
+}
+
+/* Footer */
+.footer {
+  margin-top: 1.75rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--cds-text-helper);
+}
+
+/* Toast positioned at bottom */
+.toast-wrapper {
+  position: fixed;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000;
+  min-width: 320px;
+}
+
+@media (max-width: 520px) {
+  .app-content { padding: 2.5rem 1rem 6rem; }
+  .greeting h1 { font-size: 1.625rem; }
+}
