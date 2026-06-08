@@ -1,5 +1,7 @@
 # Todo — Carbon Design System
 
+**Live app:** https://claude-todo-app-carbon-design-syste.vercel.app/
+
 A minimal, keyboard-friendly todo app built with React, TypeScript, Vite, and [IBM Carbon Design System](https://carbondesignsystem.com/). Tasks are persisted in `localStorage` — no backend required.
 
 ---
